@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Homes - Nigeria Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: #f8f9fa;
+            font-size: 1.2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 4px solid #2a5298;
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .member-title {
+            font-size: 1.1rem;
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .member-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .president-section {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+        }
+
+        .president-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .president-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .president-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .president-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .president-info h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .president-info .title {
+            color: #2a5298;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .president-info p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .country-flag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #2a5298;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .president-content {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Premium Homes International</h1>
+            <p>Nigeria Leadership Team</p>
+        </div>
+
+        <!-- President Section -->
+        <div class="president-section">
+            <div class="president-content">
+                <div class="president-image">
+                    <img src="assets/TEAM-STANLEY.jpg" alt="Mr. Nsikak Stanley Etim">
+                </div>
+                <div class="president-info">
+                    <span class="country-flag">🇳🇬 NIGERIA</span>
+                    <h2>Mr. Nsikak Stanley Etim</h2>
+                    <div class="title">PRESIDENT / CEO</div>
+                    <p>A consummate investor and experienced marketer with over 14 years in real estate development in Abuja, Nigeria. He has the skills and contacts to raise equity financing for major investments.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="assets/TEAM.-NNENA.jpg" alt="Dr. Mrs. Nnenna John A. Njoku" class="member-image">
+                <div class="member-info">
+                    <div class="member-name">Dr. Mrs. Nnenna John A. Njoku</div>
+                    <div class="member-title">FINANCIAL CONTROLLER</div>
+                    <div class="member-description">An accomplished Accountant, Certified Public Accountant, and Entrepreneur with extensive experience in real estate development and a passion for human capital development.</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="assets/TEAM-ANTHONY.jpg" alt="Anthony Okon" class="member-image">
+                <div class="member-info">
+                    <div class="member-name">Anthony Okon</div>
+                    <div class="member-title">DIRECTOR OF SALES & MARKETING</div>
+                    <div class="member-description">A highly driven entrepreneur with over forty years of sales and marketing experience. This experience encompasses a broad sector of sales industry, including solar, financial services, etc.</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="assets/TEAM-ROTIMI.jpg" alt="Arc. Rotimi Oluwaseun Oladele" class="member-image">
+                <div class="member-info">
+                    <div class="member-name">Arc. Rotimi Oluwaseun Oladele</div>
+                    <div class="member-title">ARCHITECT & BUILDING DESIGN DEVELOPER</div>
+                    <div class="member-description">A highly experienced and technically sound architect who has served in various capacities, including Principal Architect and Chief Architect, on numerous real estate projects.</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="assets/TEAM.-DONATUS.jpg" alt="Donatus S. Dadwa" class="member-image">
+                <div class="member-info">
+                    <div class="member-name">Donatus S. Dadwa</div>
+                    <div class="member-title">PROJECT DIRECTOR, NIGERIA</div>
+                    <div class="member-description">A seasoned project manager with extensive experience in the construction industry, having worked on various projects in Nigeria. He holds a BSc in Building Technology and is a member of the Nigerian Institute of Building.</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="assets/TEAM-FEMI.jpg" alt="Olufemi Olutimehin" class="member-image">
+                <div class="member-info">
+                    <div class="member-name">Olufemi Olutimehin</div>
+                    <div class="member-title">COMPANY SECRETARY/LEGAL ADVISER</div>
+                    <div class="member-description">Principal Partner of Olufemi Olutimehin & Co., a law firm specializing in real estate and property management. He has over 12 years of legal experience and serves as the company's secretary and legal advisor.</div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="assets/TEAM-SULEIMAN.jpg" alt="Mr. Ayoade" class="member-image">
+                <div class="member-info">
+                    <div class="member-name">Mr. Ayoade</div>
+                    <div class="member-title">DIRECTOR OF OPERATIONS / PROJECT DIRECTOR I, AFRICA</div>
+                    <div class="member-description">A seasoned builder who has handled notable multi-million Naira projects, including construction of houses, BTS sites, and computer laboratories across Nigeria.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
