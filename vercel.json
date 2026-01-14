@@ -1,36 +1,37 @@
 {
   "version": 2,
   "name": "premium-homes", 
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install",
+  "buildCommand": "cd national-blueprint-main && npm run build",
+  "outputDirectory": "national-blueprint-main/dist",
+  "installCommand": "cd national-blueprint-main && npm install",
   "framework": "vite",
+  "rootDirectory": "national-blueprint-main",
 
   "rewrites": [
     {
       "source": "/ng/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/sl/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/bw/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/bf/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/((?!assets/|api/).*)",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/national-blueprint-main/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -39,7 +40,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg))",
+      "source": "/national-blueprint-main/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg))",
       "headers": [
         {
           "key": "Cache-Control",
