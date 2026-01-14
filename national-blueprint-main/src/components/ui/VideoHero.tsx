@@ -1,0 +1,186 @@
+import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+
+interface VideoHeroProps {
+  videoSrc?: string;
+  title: string;
+  subtitle: string;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export const VideoHero: React.FC<VideoHeroProps> = ({ 
+  videoSrc = '/assets/premiumhomes-video.mp4', 
+  title, 
+  subtitle,
+  className = '',
+  children 
+}) => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [canPlay, setCanPlay] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleLoadedData = () => {
+      setIsVideoLoaded(true);
+      setCanPlay(true);
+    };
+
+    const handleCanPlay = () => {
+      setCanPlay(true);
+    };
+
+    const handlePlay = () => {
+      setIsVideoPlaying(true);
+    };
+
+    const handlePause = () => {
+      setIsVideoPlaying(false);
+    };
+
+    const handleError = (e: Event) => {
+      setHasError(true);
+    };
+
+    // Add event listeners
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('pause', handlePause);
+    video.addEventListener('error', handleError);
+
+    return () => {
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('pause', handlePause);
+      video.removeEventListener('error', handleError);
+    };
+  }, [videoSrc]);
+
+  const handlePlayPause = async () => {
+    const video = videoRef.current;
+    if (!video || !canPlay) return;
+
+    try {
+      if (isVideoPlaying) {
+        video.pause();
+      } else {
+        await video.play();
+      }
+    } catch (error) {
+      console.error('Play/pause failed:', error);
+    }
+  };
+
+  return (
+    <section className={`relative min-h-[90vh] flex items-center justify-center overflow-hidden ${className}`}>
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Fallback gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+        
+        {/* Video element */}
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/placeholder.svg"
+        >
+          <source src={videoSrc} type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Video Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/40" />
+        
+
+      </div>
+
+
+
+       {/* Content - Fixed positioning to avoid overlap */}
+      <div className="relative z-10 container mx-auto px-6 lg:px-12">
+        <div className="flex flex-col items-center justify-center min-h-[90vh] py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            {/* Pre-heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-8"
+            >
+              <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/90 border border-white/30 rounded-sm bg-white/10 backdrop-blur-sm">
+                {subtitle}
+              </span>
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-[1.1] tracking-tight mb-8 drop-shadow-lg"
+            >
+              {title}
+            </motion.h1>
+          </motion.div>
+          
+          {/* Additional content (like metrics) */}
+          {children}
+        </div>
+      </div>
+
+      {/* Play/Pause Button */}
+      <button
+        onClick={handlePlayPause}
+        className="absolute bottom-8 right-8 z-20 w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-105 shadow-lg"
+        aria-label={isVideoPlaying ? "Pause video" : "Play video"}
+      >
+        {isVideoPlaying ? (
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="6" y="4" width="4" height="16"/>
+            <rect x="14" y="4" width="4" height="16"/>
+          </svg>
+        ) : (
+          <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        )}
+      </button>
+
+
+
+      {/* Loading indicator */}
+      {!isVideoLoaded && !hasError && (
+        <div className="absolute inset-0 bg-slate-900 z-5 flex items-center justify-center">
+          <div className="text-white text-sm">Loading premium experience...</div>
+        </div>
+      )}
+
+      {/* Error state */}
+      {hasError && (
+        <div className="absolute inset-0 bg-slate-900 z-5 flex items-center justify-center">
+          <div className="text-white text-sm text-center">
+            <div className="mb-2">🏛️</div>
+            <div>Premium experience</div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
