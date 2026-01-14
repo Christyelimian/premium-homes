@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd national-blueprint-main && npm run build",
+  "outputDirectory": "national-blueprint-main/dist",
+  "installCommand": "cd national-blueprint-main && npm install",
+  "framework": "vite",
+  "rootDirectory": "national-blueprint-main"
+}
