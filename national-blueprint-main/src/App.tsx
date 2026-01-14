@@ -14,6 +14,7 @@ import InstitutionalProjectDetail from "./components/projects/InstitutionalProje
 import WhoWeAre from "./pages/about/WhoWeAreImage";
 import Philosophy from "./pages/about/Philosophy";
 import Values from "./pages/about/Values";
+import Leadership from "./pages/about/Leadership";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/:country/about/who-we-are" element={<WhoWeAre />} />
               <Route path="/:country/about/philosophy" element={<Philosophy />} />
               <Route path="/:country/about/values" element={<Values />} />
+              <Route path="/:country/about/leadership" element={<Leadership />} />
               <Route path="/:country/what-we-do" element={<WhatWeDo />} />
               <Route path="/:country/programs" element={<Index />} />
               <Route path="/:country/how-we-deliver" element={<HowWeDeliver />} />
@@ -51,6 +53,7 @@ const App = () => (
               <Route path="/about/who-we-are" element={<WhoWeAre />} />
               <Route path="/about/philosophy" element={<Philosophy />} />
               <Route path="/about/values" element={<Values />} />
+              <Route path="/about/leadership" element={<Leadership />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>

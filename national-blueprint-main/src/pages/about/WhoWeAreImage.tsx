@@ -186,9 +186,15 @@ const WhoWeAre = () => {
             <h2 className="font-serif text-3xl md:text-4xl font-light text-slate-900 mb-4">
               Backed by Experience
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
               Our leadership team brings decades of collective experience in premium residential development and capital projects.
             </p>
+            <Link to="/about/leadership">
+              <Button variant="outline" className="group">
+                Meet Our Leadership
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
