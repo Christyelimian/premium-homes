@@ -10,23 +10,23 @@
   "rewrites": [
     {
       "source": "/ng/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/sl/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/bw/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
       "source": "/bf/:path*",
-      "destination": "/index.html"
+      "destination": "/national-blueprint-main/index.html"
     },
     {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "source": "/((?!api/|national-blueprint-main/).*)",
+      "destination": "/national-blueprint-main/index.html"
     }
   ],
   "headers": [
