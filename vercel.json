@@ -9,23 +9,7 @@
 
   "rewrites": [
     {
-      "source": "/ng/:path*",
-      "destination": "/national-blueprint-main/index.html"
-    },
-    {
-      "source": "/sl/:path*",
-      "destination": "/national-blueprint-main/index.html"
-    },
-    {
-      "source": "/bw/:path*",
-      "destination": "/national-blueprint-main/index.html"
-    },
-    {
-      "source": "/bf/:path*",
-      "destination": "/national-blueprint-main/index.html"
-    },
-    {
-      "source": "/((?!api/|national-blueprint-main/).*)",
+      "source": "/((?!api/).*)",
       "destination": "/national-blueprint-main/index.html"
     }
   ],
