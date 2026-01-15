@@ -10,28 +10,28 @@
   "rewrites": [
     {
       "source": "/ng/:path*",
-      "destination": "/national-blueprint-main/index.html"
+      "destination": "/index.html"
     },
     {
       "source": "/sl/:path*",
-      "destination": "/national-blueprint-main/index.html"
+      "destination": "/index.html"
     },
     {
       "source": "/bw/:path*",
-      "destination": "/national-blueprint-main/index.html"
+      "destination": "/index.html"
     },
     {
       "source": "/bf/:path*",
-      "destination": "/national-blueprint-main/index.html"
+      "destination": "/index.html"
     },
     {
-      "source": "/((?!assets/|api/).*)",
-      "destination": "/national-blueprint-main/index.html"
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/national-blueprint-main/assets/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "source": "/national-blueprint-main/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg))",
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg))",
       "headers": [
         {
           "key": "Cache-Control",
